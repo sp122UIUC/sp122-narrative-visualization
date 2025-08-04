@@ -128,7 +128,7 @@ function updateToScene2() {
 function updateToScene3() {
     d3.select("#narrative-text").html(`
         <h2>Scene 3: The Fuel Sippers & Free Exploration</h2>
-        <p>In contrast, the most efficient cars (over 35 MPG) are shown in <strong>blue</strong>. Unsurprisingly, they are all 4-cylinder models. <strong>Hover over any point to explore details.</strong> ⛽️</p>
+        <p>In contrast, the most efficient cars (over 35 MPG) are shown in <strong>blue</strong>. They are all 3 or 4-cylinder models. <strong>Hover over any point to explore details.</strong></p>
         <p class="scene-instruction">Tip: Move your mouse over any dot to see more information about the car.</p>
     `);
 
@@ -142,7 +142,7 @@ function updateToScene3() {
     svg.selectAll(".car-circle")
         .on("mouseover", (event, d) => {
             tooltip.transition().duration(200).style("opacity", .9);
-            tooltip.html(`<strong>${d.Make}</strong><br/>Cylinders: ${d.EngineCylinders}<br/>Highway MPG: ${d.AverageHighwayMPG}<br/>City MPG: ${d.AverageCityMPG}`)
+            tooltip.html(`<strong>${d.Make}</strong><br/>Model: ${d.Model}<br/>Cylinders: ${d.EngineCylinders}<br/>Highway MPG: ${d.AverageHighwayMPG}<br/>City MPG: ${d.AverageCityMPG}`)
                 .style("left", (event.pageX + 15) + "px")
                 .style("top", (event.pageY - 28) + "px");
         })
